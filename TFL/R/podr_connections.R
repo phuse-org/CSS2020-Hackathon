@@ -20,7 +20,7 @@ connect_podr <- function(username) {
                           Server = "podr.phuse.global", 
                           Port = "5432", 
                           Database = "nihpo", 
-                          UID = "phuse_p7r82p0vul", 
+                          UID = username, 
                           PWD = rstudioapi::askForPassword("Database password:"), 
                           timeout = 10)
   # Store connection in option
