@@ -261,7 +261,7 @@ ht <- as_hux(final, add_colnames=FALSE) %>%
   set_valign(1:2, 1:ncol(final), 'bottom') %>% # Bottom align the first row
   set_bottom_border(2, 1:ncol(final), 1) %>% # Put a border under the first row
   set_width(1.1) %>% # Set the table width
-  set_col_width(c(.3, rep(.7/6, 6))) %>%  # Set the column widths
+  set_col_width(c(.2, rep(.8/6, 6))) %>%  # Set the column widths
   merge_cells(1, 2:3) %>% # Merge placebo spanning header
   merge_cells(1, 4:5) %>% # Merge low dose spanning header
   merge_cells(1, 6:7) %>%  # Merge high dose spanning header

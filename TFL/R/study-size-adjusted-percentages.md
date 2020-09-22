@@ -348,7 +348,7 @@ ht <- as_hux(final, add_colnames=FALSE) %>%
   set_valign(1:2, 1:ncol(final), 'bottom') %>% # Bottom align the first row
   set_bottom_border(2, 1:ncol(final), 1) %>% # Put a border under the first row
   set_width(1.1) %>% # Set the table width
-  set_col_width(c(.3, rep(.7/6, 6))) %>%  # Set the column widths
+  set_col_width(c(.2, rep(.8/6, 6))) %>%  # Set the column widths
   merge_cells(1, 2:3) %>% # Merge placebo spanning header
   merge_cells(1, 4:5) %>% # Merge low dose spanning header
   merge_cells(1, 6:7) %>%  # Merge high dose spanning header
@@ -358,19 +358,19 @@ ht <- as_hux(final, add_colnames=FALSE) %>%
 
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 110%; margin-left: auto; margin-right: auto;  " id="tab:styling">
 
-<col style="width: 30%">
+<col style="width: 20%">
 
-<col style="width: 11.6666666666667%">
+<col style="width: 13.3333333333333%">
 
-<col style="width: 11.6666666666667%">
+<col style="width: 13.3333333333333%">
 
-<col style="width: 11.6666666666667%">
+<col style="width: 13.3333333333333%">
 
-<col style="width: 11.6666666666667%">
+<col style="width: 13.3333333333333%">
 
-<col style="width: 11.6666666666667%">
+<col style="width: 13.3333333333333%">
 
-<col style="width: 11.6666666666667%">
+<col style="width: 13.3333333333333%">
 
 <tr>
 
