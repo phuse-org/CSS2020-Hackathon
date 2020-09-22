@@ -113,19 +113,29 @@ Simple enough - let's go.
 
 ```{r study size weights}
 # Start with treatment arm overall
-total_arm <- adsl_pooled %>% 
-  group_by(TRT01P) %>% 
-  summarize(total_arm = n(), .groups='drop')
+total_subs <- adsl_pooled %>%
+  summarize(total_subs = n(), .groups='drop') %>% 
+  mutate(x = 1) # Make a merge variable for the join
 
 # Now get per study per arm
+total_study_subs <- adsl_pooled %>% 
+  group_by(STUDYID) %>% 
+  summarize(total_study_subs = n(), .groups='drop') %>% 
+  mutate(x = 1) # Make a merge variable for the join
+
+# Subjects in an ARM
 total_study_arm <- adsl_pooled %>% 
-  group_by(TRT01P, STUDYID) %>% 
-  summarize(total_study_arm = n(), .groups='drop')
+  group_by(STUDYID, TRT01P) %>% 
+  summarize(total_study_arm = n(), .groups='drop') %>% 
+  mutate(x = 1) # Make a merge variable for the join
 
-denoms <- full_join(total_study_arm, total_arm, by = "TRT01P") %>% 
-  mutate(weight = total_study_arm / total_arm) 
+# Get denom dataset assembled
+denoms <- full_join(total_subs, total_study_subs, by = "x") %>% 
+  full_join(total_study_arm, by=c('STUDYID', 'x')) %>% 
+  mutate(weight = total_study_subs / total_subs) %>% 
+  select(-x)
 
-rm(total_arm, total_study_arm)
+rm(total_subs, total_study_subs)
 
 kable(head(denoms))
 ```
@@ -154,9 +164,6 @@ Great - Now let's incorporate the denominators and the weights that we derived e
 
 ```{r get weights}
 counts_and_weight <- counts_by_study %>% 
-  # Note that we're joining variables with different names.
-  # Left joins in R allow you to specify different variable
-  # names that you want to join by doing left_var = right_var
   left_join(denoms, by=c('STUDYID', 'TRTA' = 'TRT01P'))
 
 kable(head(counts_and_weight))
