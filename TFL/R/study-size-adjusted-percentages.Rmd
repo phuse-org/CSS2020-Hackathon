@@ -2,7 +2,7 @@
 title: "Study Size Adjusted Percentages"
 author: "Mike Stackhouse"
 date: "9/22/2020"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -266,8 +266,9 @@ ht <- as_hux(final, add_colnames=FALSE) %>%
   merge_cells(1, 4:5) %>% # Merge low dose spanning header
   merge_cells(1, 6:7) %>%  # Merge high dose spanning header
   set_background_color(seq(3, nrow(final), 2), everywhere, "grey95")
-ht
 ```
+
+`r to_html(ht)`
 
 ```{r close_connection, include=FALSE}
 DBI::dbDisconnect(getOption('podr_connection'))

@@ -353,549 +353,8098 @@ ht <- as_hux(final, add_colnames=FALSE) %>%
   merge_cells(1, 4:5) %>% # Merge low dose spanning header
   merge_cells(1, 6:7) %>%  # Merge high dose spanning header
   set_background_color(seq(3, nrow(final), 2), everywhere, "grey95")
-cat(print_md(ht))
 ```
 
-    ## Warning in to_md.huxtable(ht, ...): Markdown cannot handle cells with colspan/
-    ## rowspan > 1
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 110%; margin-left: auto; margin-right: auto;  " id="tab:styling">
 
-    ## Warning in to_md.huxtable(ht, ...): Can't vary column alignment in markdown;
-    ## using first row
+<col style="width: 30%">
 
-    ## -----------------------------------------------------------------------------
-    ##                             **Placebo**    **Xanomeline**    **Xanomeline**  
-    ##                              **(N=46)**      **Low Dose**     **High Dose**  
-    ##                                                **(N=55)**        **(N=39)**  
-    ## ---------------------- -------- -------- -------- -------- -------- ---------
-    ##     **Preferred Term** **n(%)** **Stud** **n(%)** **Stud** **n(%)** **Stud** 
-    ##                                    **y**             **y**             **y** 
-    ##                                 **Size**          **Size**          **Size** 
-    ##                                 **-Adj**          **-Adj**          **-Adj** 
-    ##                                 **uste**          **uste**          **uste** 
-    ##                                    **d**             **d**             **d** 
-    ##                                    **%**             **%**             **%** 
-    ##                                                                              
-    ##       APPLICATION SITE      1 (      2.2     16 (     29.1     12 (     30.8 
-    ##               PRURITUS    2.2%)            29.1%)            30.8%)          
-    ##                                                                              
-    ##               PRURITUS      6 (     13.0     15 (     27.3     11 (     28.2 
-    ##                          13.0%)            27.3%)            28.2%)          
-    ##                                                                              
-    ##              DIZZINESS      2 (      4.3      5 (      9.1      9 (     23.1 
-    ##                           4.3%)             9.1%)            23.1%)          
-    ##                                                                              
-    ##       APPLICATION SITE      2 (      4.3      7 (     12.7      7 (     17.9 
-    ##               ERYTHEMA    4.3%)            12.7%)            17.9%)          
-    ##                                                                              
-    ##               ERYTHEMA      6 (     13.0      9 (     16.4      7 (     17.9 
-    ##                          13.0%)            16.4%)            17.9%)          
-    ##                                                                              
-    ##          HYPERHIDROSIS      1 (      2.2      1 (      1.8      6 (     15.4 
-    ##                           2.2%)             1.8%)            15.4%)          
-    ##                                                                              
-    ##      SINUS BRADYCARDIA      1 (      2.2      6 (     10.9      6 (     15.4 
-    ##                           2.2%)            10.9%)            15.4%)          
-    ##                                                                              
-    ##       APPLICATION SITE      2 (      4.3      7 (     12.7      4 (     10.3 
-    ##             DERMATITIS    4.3%)            12.7%)            10.3%)          
-    ##                                                                              
-    ##       APPLICATION SITE      2 (      4.3      6 (     10.9      4 (     10.3 
-    ##             IRRITATION    4.3%)            10.9%)            10.3%)          
-    ##                                                                              
-    ##        NASOPHARYNGITIS      2 (      4.3      2 (      3.6      4 (     10.3 
-    ##                           4.3%)             3.6%)            10.3%)          
-    ##                                                                              
-    ##               VOMITING      1 (      2.2      3 (      5.5      4 (     10.3 
-    ##                           2.2%)             5.5%)            10.3%)          
-    ##                                                                              
-    ##               HEADACHE      5 (     10.9      1 (      1.8      3 (      7.7 
-    ##                          10.9%)             1.8%)             7.7%)          
-    ##                                                                              
-    ##       NASAL CONGESTION      2 (      4.3      0 (      0.0      3 (      7.7 
-    ##                           4.3%)             0.0%)             7.7%)          
-    ##                                                                              
-    ##                 NAUSEA      1 (      2.2      3 (      5.5      3 (      7.7 
-    ##                           2.2%)             5.5%)             7.7%)          
-    ##                                                                              
-    ##                   RASH      3 (      6.5     11 (     20.0      3 (      7.7 
-    ##                           6.5%)            20.0%)             7.7%)          
-    ##                                                                              
-    ##               SALIVARY      0 (      0.0      0 (      0.0      3 (      7.7 
-    ##         HYPERSECRETION    0.0%)             0.0%)             7.7%)          
-    ##                                                                              
-    ##       APPLICATION SITE      0 (      0.0      2 (      3.6      2 (      5.1 
-    ##               VESICLES    0.0%)             3.6%)             5.1%)          
-    ##                                                                              
-    ##    ATRIAL FIBRILLATION      1 (      2.2      1 (      1.8      2 (      5.1 
-    ##                           2.2%)             1.8%)             5.1%)          
-    ##                                                                              
-    ##              CONTUSION      0 (      0.0      1 (      1.8      2 (      5.1 
-    ##                           0.0%)             1.8%)             5.1%)          
-    ##                                                                              
-    ##              EPISTAXIS      0 (      0.0      0 (      0.0      2 (      5.1 
-    ##                           0.0%)             0.0%)             5.1%)          
-    ##                                                                              
-    ##             FLANK PAIN      0 (      0.0      0 (      0.0      2 (      5.1 
-    ##                           0.0%)             0.0%)             5.1%)          
-    ##                                                                              
-    ##                MALAISE      0 (      0.0      1 (      1.8      2 (      5.1 
-    ##                           0.0%)             1.8%)             5.1%)          
-    ##                                                                              
-    ##        SKIN IRRITATION      2 (      4.3      4 (      7.3      2 (      5.1 
-    ##                           4.3%)             7.3%)             5.1%)          
-    ##                                                                              
-    ##   ABDOMINAL DISCOMFORT      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##         ABDOMINAL PAIN      0 (      0.0      3 (      5.5      1 (      2.6 
-    ##                           0.0%)             5.5%)             2.6%)          
-    ##                                                                              
-    ##      ACTINIC KERATOSIS      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##            ALCOHOL USE      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##               ALLERGIC      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##          GRANULOMATOUS    0.0%)             0.0%)             2.6%)          
-    ##               ANGIITIS                                                       
-    ##                                                                              
-    ##                AMNESIA      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##  APPLICATION SITE PAIN      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##       APPLICATION SITE      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##           PERSPIRATION    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##       APPLICATION SITE      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##               REACTION    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##       APPLICATION SITE      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##               SWELLING    0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##       APPLICATION SITE      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##              URTICARIA    0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##              ARTHRITIS      1 (      2.2      0 (      0.0      1 (      2.6 
-    ##                           2.2%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##         ATRIAL FLUTTER      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##                           0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##       ATRIOVENTRICULAR      2 (      4.3      0 (      0.0      1 (      2.6 
-    ##    BLOCK SECOND DEGREE    4.3%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##              BACK PAIN      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##                           0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##                 BIOPSY      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##                BLISTER      0 (      0.0      4 (      7.3      1 (      2.6 
-    ##                           0.0%)             7.3%)             2.6%)          
-    ##                                                                              
-    ##      BLOOD CHOLESTEROL      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##              INCREASED    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##      BURNING SENSATION      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##      CALCULUS URETHRAL      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##                 CHILLS      1 (      2.2      1 (      1.8      1 (      2.6 
-    ##                           2.2%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##      CONFUSIONAL STATE      1 (      2.2      2 (      3.6      1 (      2.6 
-    ##                           2.2%)             3.6%)             2.6%)          
-    ##                                                                              
-    ##                  COUGH      2 (      4.3      5 (      9.1      1 (      2.6 
-    ##                           4.3%)             9.1%)             2.6%)          
-    ##                                                                              
-    ##               CYSTITIS      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##     DECREASED APPETITE      1 (      2.2      0 (      0.0      1 (      2.6 
-    ##                           2.2%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##               DELUSION      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##         DEPRESSED MOOD      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##                           0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##              DIARRHOEA      5 (     10.9      3 (      5.5      1 (      2.6 
-    ##                          10.9%)             5.5%)             2.6%)          
-    ##                                                                              
-    ##              DYSPEPSIA      1 (      2.2      1 (      1.8      1 (      2.6 
-    ##                           2.2%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##            EXCORIATION      1 (      2.2      1 (      1.8      1 (      2.6 
-    ##                           2.2%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##  FACIAL BONES FRACTURE      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##                   FALL      1 (      2.2      1 (      1.8      1 (      2.6 
-    ##                           2.2%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##                FATIGUE      0 (      0.0      4 (      7.3      1 (      2.6 
-    ##                           0.0%)             7.3%)             2.6%)          
-    ##                                                                              
-    ##       FEELING ABNORMAL      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##           FEELING COLD      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##          HALLUCINATION      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##     INCREASED APPETITE      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##               INSOMNIA      1 (      2.2      0 (      0.0      1 (      2.6 
-    ##                           2.2%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##               LETHARGY      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##       LIBIDO DECREASED      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##               LISTLESS      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##      LOWER RESPIRATORY      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##        TRACT INFECTION    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##    MICTURITION URGENCY      1 (      2.2      1 (      1.8      1 (      2.6 
-    ##                           2.2%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##                MYALGIA      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##  MYOCARDIAL INFARCTION      2 (      4.3      2 (      3.6      1 (      2.6 
-    ##                           4.3%)             3.6%)             2.6%)          
-    ##                                                                              
-    ##        NEPHROLITHIASIS      1 (      2.2      0 (      0.0      1 (      2.6 
-    ##                           2.2%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##              NIGHTMARE      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##                   PAIN      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##                           0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##               PAROSMIA      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##      PHARYNGOLARYNGEAL      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                   PAIN    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##       PRODUCTIVE COUGH      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##        PROSTATE CANCER      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##   PRURITUS GENERALISED      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##                PYREXIA      2 (      4.3      0 (      0.0      1 (      2.6 
-    ##                           4.3%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##    RASH MACULO-PAPULAR      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##           RASH PAPULAR      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##          RASH PRURITIC      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##      RESPIRATORY TRACT      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##             CONGESTION    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##               RHINITIS      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##            RHINORRHOEA      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##                           0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##       SEASONAL ALLERGY      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##     STOMACH DISCOMFORT      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##                SYNCOPE      0 (      0.0      2 (      3.6      1 (      2.6 
-    ##                           0.0%)             3.6%)             2.6%)          
-    ##                                                                              
-    ##    TRANSIENT ISCHAEMIC      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                 ATTACK    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##      UPPER RESPIRATORY      4 (      8.7      0 (      0.0      1 (      2.6 
-    ##        TRACT INFECTION    8.7%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##          URINARY TRACT      2 (      4.3      0 (      0.0      1 (      2.6 
-    ##              INFECTION    4.3%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##              URTICARIA      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##            VENTRICULAR      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##          EXTRASYSTOLES    0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##     VENTRICULAR SEPTAL      0 (      0.0      1 (      1.8      1 (      2.6 
-    ##                 DEFECT    0.0%)             1.8%)             2.6%)          
-    ##                                                                              
-    ##         VISION BLURRED      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##      WOUND HAEMORRHAGE      0 (      0.0      0 (      0.0      1 (      2.6 
-    ##                           0.0%)             0.0%)             2.6%)          
-    ##                                                                              
-    ##              AGITATION      2 (      4.3      1 (      1.8      0 (      0.0 
-    ##                           4.3%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##                ANXIETY      1 (      2.2      3 (      5.5      0 (      0.0 
-    ##                           2.2%)             5.5%)             0.0%)          
-    ##                                                                              
-    ##       APPLICATION SITE      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##               BLEEDING    0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##       APPLICATION SITE      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##         DISCOLOURATION    0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##       APPLICATION SITE      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##             INDURATION    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##             ARTHRALGIA      0 (      0.0      2 (      3.6      0 (      0.0 
-    ##                           0.0%)             3.6%)             0.0%)          
-    ##                                                                              
-    ##               ASTHENIA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##       ATRIOVENTRICULAR      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##     BLOCK FIRST DEGREE    0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##       BALANCE DISORDER      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##       BENIGN PROSTATIC      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##            HYPERPLASIA    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##         BLOOD ALKALINE      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##  PHOSPHATASE INCREASED    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##    BLOOD URINE PRESENT      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##            BRADYCARDIA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##             BRONCHITIS      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##    BUNDLE BRANCH BLOCK      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                  RIGHT    2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##        CARDIAC FAILURE      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##             CONGESTIVE    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##     CATARACT OPERATION      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                           2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##             CELLULITIS      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##             CERVICITIS      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##             COLD SWEAT      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##           COLON CANCER      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##         CONJUNCTIVITIS      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##  COORDINATION ABNORMAL      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##                   CYST      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##             CYSTOSCOPY      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##            DEHYDRATION      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##         DISORIENTATION      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##              DYSPHAGIA      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##              DYSPHONIA      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##               DYSPNOEA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##                DYSURIA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##          EAR INFECTION      2 (      4.3      0 (      0.0      0 (      0.0 
-    ##                           4.3%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##               EAR PAIN      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##   ELECTROCARDIOGRAM ST      2 (      4.3      0 (      0.0      0 (      0.0 
-    ##     SEGMENT DEPRESSION    4.3%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##    ELECTROCARDIOGRAM T      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##         WAVE AMPLITUDE    2.2%)             1.8%)             0.0%)          
-    ##              DECREASED                                                       
-    ##                                                                              
-    ##    ELECTROCARDIOGRAM T      2 (      4.3      1 (      1.8      0 (      0.0 
-    ##         WAVE INVERSION    4.3%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##              EMPHYSEMA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##               ENURESIS      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##            EYE ALLERGY      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##           EYE PRURITUS      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##           EYE SWELLING      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##           FOOD CRAVING      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                           2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##  GASTROENTERITIS VIRAL      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##      GASTROOESOPHAGEAL      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##         REFLUX DISEASE    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##               GLAUCOMA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##              GLOSSITIS      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##   HEART RATE INCREASED      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##   HEART RATE IRREGULAR      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##  HEMIANOPIA HOMONYMOUS      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##       HYPERSENSITIVITY      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##          HYPONATRAEMIA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##            HYPOTENSION      2 (      4.3      0 (      0.0      0 (      0.0 
-    ##                           4.3%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##           INFLAMMATION      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##           IRRITABILITY      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                           2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##    LOCALISED INFECTION      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                           2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##      MALIGNANT FIBROUS      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##           HISTIOCYTOMA    0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##      MUSCULAR WEAKNESS      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##    NASAL MUCOSA BIOPSY      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##                 OEDEMA      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##      OEDEMA PERIPHERAL      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                           2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##          ONYCHOMYCOSIS      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##            ORTHOSTATIC      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##            HYPOTENSION    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##           PALPITATIONS      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##    PARKINSON'S DISEASE      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##            PELVIC PAIN      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##              PNEUMONIA      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##      RASH ERYTHEMATOUS      0 (      0.0      2 (      3.6      0 (      0.0 
-    ##                           0.0%)             3.6%)             0.0%)          
-    ##                                                                              
-    ##    SECRETION DISCHARGE      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##          SHOULDER PAIN      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                           2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##       SKIN EXFOLIATION      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##             SOMNOLENCE      1 (      2.2      1 (      1.8      0 (      0.0 
-    ##                           2.2%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##       SUPRAVENTRICULAR      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##          EXTRASYSTOLES    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##       SUPRAVENTRICULAR      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##            TACHYCARDIA    0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##               SWELLING      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##            TACHYCARDIA      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##                  ULCER      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##        VAGINAL MYCOSIS      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##                           2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##            VENTRICULAR      1 (      2.2      0 (      0.0      0 (      0.0 
-    ##            HYPERTROPHY    2.2%)             0.0%)             0.0%)          
-    ##                                                                              
-    ##        VIRAL INFECTION      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ##                                                                              
-    ##                  WOUND      0 (      0.0      1 (      1.8      0 (      0.0 
-    ##                           0.0%)             1.8%)             0.0%)          
-    ## -----------------------------------------------------------------------------
+<col style="width: 11.6666666666667%">
+
+<col style="width: 11.6666666666667%">
+
+<col style="width: 11.6666666666667%">
+
+<col style="width: 11.6666666666667%">
+
+<col style="width: 11.6666666666667%">
+
+<col style="width: 11.6666666666667%">
+
+<tr>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+</td>
+
+<td colspan="2" style="vertical-align: bottom; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+Placebo (N=46)
+
+</td>
+
+<td colspan="2" style="vertical-align: bottom; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+Xanomeline Low Dose (N=55)
+
+</td>
+
+<td colspan="2" style="vertical-align: bottom; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+Xanomeline High Dose (N=39)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+Preferred Term
+
+</td>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+n(%)
+
+</td>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+Study Size-Adjusted %
+
+</td>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+n(%)
+
+</td>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+Study Size-Adjusted %
+
+</td>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+n(%)
+
+</td>
+
+<td style="vertical-align: bottom; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">
+
+Study Size-Adjusted %
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+APPLICATION SITE PRURITUS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+16 ( 29.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+29.1
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+12 ( 30.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+30.8
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+PRURITUS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+6 ( 13.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+13.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+15 ( 27.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+27.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+11 ( 28.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+28.2
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+DIZZINESS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5 ( 9.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+9.1
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+9 ( 23.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+23.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+APPLICATION SITE ERYTHEMA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7 ( 12.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+12.7
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7 ( 17.9%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+17.9
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ERYTHEMA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+6 ( 13.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+13.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+9 ( 16.4%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+16.4
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+7 ( 17.9%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+17.9
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+HYPERHIDROSIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+6 ( 15.4%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+15.4
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+SINUS BRADYCARDIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+6 ( 10.9%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+10.9
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+6 ( 15.4%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+15.4
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+APPLICATION SITE DERMATITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7 ( 12.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+12.7
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4 ( 10.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+10.3
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+APPLICATION SITE IRRITATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+6 ( 10.9%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+10.9
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4 ( 10.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+10.3
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+NASOPHARYNGITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 3.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3.6
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4 ( 10.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+10.3
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+VOMITING
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3 ( 5.5%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5.5
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4 ( 10.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+10.3
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+HEADACHE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+5 ( 10.9%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+10.9
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3 ( 7.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7.7
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+NASAL CONGESTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3 ( 7.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+7.7
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+NAUSEA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3 ( 5.5%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+5.5
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3 ( 7.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7.7
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+RASH
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3 ( 6.5%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+6.5
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+11 ( 20.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+20.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3 ( 7.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+7.7
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+SALIVARY HYPERSECRETION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3 ( 7.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7.7
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+APPLICATION SITE VESICLES
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 3.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3.6
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 5.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ATRIAL FIBRILLATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 5.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+CONTUSION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 5.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+EPISTAXIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 5.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+FLANK PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 5.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+MALAISE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 5.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+SKIN IRRITATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4 ( 7.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+7.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 5.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ABDOMINAL DISCOMFORT
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ABDOMINAL PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3 ( 5.5%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5.5
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ACTINIC KERATOSIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ALCOHOL USE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ALLERGIC GRANULOMATOUS ANGIITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+AMNESIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+APPLICATION SITE PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+APPLICATION SITE PERSPIRATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+APPLICATION SITE REACTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+APPLICATION SITE SWELLING
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+APPLICATION SITE URTICARIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ARTHRITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ATRIAL FLUTTER
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ATRIOVENTRICULAR BLOCK SECOND DEGREE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+BACK PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+BIOPSY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+BLISTER
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4 ( 7.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+BLOOD CHOLESTEROL INCREASED
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+BURNING SENSATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+CALCULUS URETHRAL
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+CHILLS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+CONFUSIONAL STATE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 3.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3.6
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+COUGH
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+5 ( 9.1%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+9.1
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+CYSTITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+DECREASED APPETITE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+DELUSION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+DEPRESSED MOOD
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+DIARRHOEA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5 ( 10.9%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+10.9
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3 ( 5.5%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+5.5
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+DYSPEPSIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+EXCORIATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+FACIAL BONES FRACTURE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+FALL
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+FATIGUE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4 ( 7.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+7.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+FEELING ABNORMAL
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+FEELING COLD
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+HALLUCINATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+INCREASED APPETITE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+INSOMNIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+LETHARGY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+LIBIDO DECREASED
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+LISTLESS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+LOWER RESPIRATORY TRACT INFECTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+MICTURITION URGENCY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+MYALGIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+MYOCARDIAL INFARCTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 3.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3.6
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+NEPHROLITHIASIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+NIGHTMARE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+PAROSMIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+PHARYNGOLARYNGEAL PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+PRODUCTIVE COUGH
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+PROSTATE CANCER
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+PRURITUS GENERALISED
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+PYREXIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+RASH MACULO-PAPULAR
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+RASH PAPULAR
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+RASH PRURITIC
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+RESPIRATORY TRACT CONGESTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+RHINITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+RHINORRHOEA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+SEASONAL ALLERGY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+STOMACH DISCOMFORT
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+SYNCOPE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 3.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3.6
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+TRANSIENT ISCHAEMIC ATTACK
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+UPPER RESPIRATORY TRACT INFECTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4 ( 8.7%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+8.7
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+URINARY TRACT INFECTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+URTICARIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+VENTRICULAR EXTRASYSTOLES
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+VENTRICULAR SEPTAL DEFECT
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+VISION BLURRED
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+WOUND HAEMORRHAGE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+AGITATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ANXIETY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3 ( 5.5%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+5.5
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+APPLICATION SITE BLEEDING
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+APPLICATION SITE DISCOLOURATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+APPLICATION SITE INDURATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ARTHRALGIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 3.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+3.6
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ASTHENIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ATRIOVENTRICULAR BLOCK FIRST DEGREE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+BALANCE DISORDER
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+BENIGN PROSTATIC HYPERPLASIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+BLOOD ALKALINE PHOSPHATASE INCREASED
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+BLOOD URINE PRESENT
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+BRADYCARDIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+BRONCHITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+BUNDLE BRANCH BLOCK RIGHT
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+CARDIAC FAILURE CONGESTIVE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+CATARACT OPERATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+CELLULITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+CERVICITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+COLD SWEAT
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+COLON CANCER
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+CONJUNCTIVITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+COORDINATION ABNORMAL
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+CYST
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+CYSTOSCOPY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+DEHYDRATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+DISORIENTATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+DYSPHAGIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+DYSPHONIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+DYSPNOEA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+DYSURIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+EAR INFECTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+EAR PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ELECTROCARDIOGRAM ST SEGMENT DEPRESSION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ELECTROCARDIOGRAM T WAVE AMPLITUDE DECREASED
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ELECTROCARDIOGRAM T WAVE INVERSION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+EMPHYSEMA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ENURESIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+EYE ALLERGY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+EYE PRURITUS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+EYE SWELLING
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+FOOD CRAVING
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+GASTROENTERITIS VIRAL
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+GASTROOESOPHAGEAL REFLUX DISEASE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+GLAUCOMA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+GLOSSITIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+HEART RATE INCREASED
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+HEART RATE IRREGULAR
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+HEMIANOPIA HOMONYMOUS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+HYPERSENSITIVITY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+HYPONATRAEMIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+HYPOTENSION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2 ( 4.3%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+4.3
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+INFLAMMATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+IRRITABILITY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+LOCALISED INFECTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+MALIGNANT FIBROUS HISTIOCYTOMA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+MUSCULAR WEAKNESS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+NASAL MUCOSA BIOPSY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+OEDEMA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+OEDEMA PERIPHERAL
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+ONYCHOMYCOSIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ORTHOSTATIC HYPOTENSION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+PALPITATIONS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+PARKINSON’S DISEASE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+PELVIC PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+PNEUMONIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+RASH ERYTHEMATOUS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2 ( 3.6%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+3.6
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+SECRETION DISCHARGE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+SHOULDER PAIN
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+SKIN EXFOLIATION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+SOMNOLENCE
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+SUPRAVENTRICULAR EXTRASYSTOLES
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+SUPRAVENTRICULAR TACHYCARDIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+SWELLING
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+TACHYCARDIA
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+ULCER
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+VAGINAL MYCOSIS
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+VENTRICULAR HYPERTROPHY
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 2.2%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+2.2
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+VIRAL INFECTION
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+WOUND
+
+</td>
+
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1 ( 1.8%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+1.8
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0 ( 0.0%)
+
+</td>
+
+<td style="vertical-align: top; text-align: center; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+
+0.0
+
+</td>
+
+</tr>
+
+</table>
