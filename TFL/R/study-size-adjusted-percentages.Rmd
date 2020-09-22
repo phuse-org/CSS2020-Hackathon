@@ -41,15 +41,15 @@ set.seed(1234)
 # Get the set of subjects
 all_subs <- adsl$USUBJID
 # Sample 20 for the first group
-study1_subs <- sample(all_subs, 35)
+study1_subs <- sample(all_subs, 20)
 # Remove those subjects from the pool of available subjects
 all_subs <- setdiff(all_subs, study1_subs)
 # Repeat for study 2
-study2_subs <- sample(all_subs, 45)
+study2_subs <- sample(all_subs, 30)
 # Remove from total set
 all_subs <- setdiff(all_subs, study2_subs)
 # Repeat for study 3
-study3_subs <- sample(all_subs, 60)
+study3_subs <- sample(all_subs, 150)
 
 # Filter each of the ADSLs down
 adsl1 <- adsl %>% 
@@ -108,6 +108,8 @@ The next step is to derive weights. In order to derive weights, we need two piec
 - The total number of subjects by study in a treatment arm - which we can reuse later as a denominator as well
 
 Simple enough - let's go.
+
+## ** FIX THIS SECTION TO DO THE WEIGHTING PROPERLY **
 
 ```{r study size weights}
 # Start with treatment arm overall
