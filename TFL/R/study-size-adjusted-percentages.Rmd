@@ -265,7 +265,8 @@ ht <- as_hux(final, add_colnames=FALSE) %>%
   merge_cells(1, 2:3) %>% # Merge placebo spanning header
   merge_cells(1, 4:5) %>% # Merge low dose spanning header
   merge_cells(1, 6:7) %>%  # Merge high dose spanning header
-  set_background_color(seq(3, nrow(final), 2), everywhere, "grey95")
+  set_background_color(seq(3, nrow(final), 2), everywhere, "grey95") %>% 
+  set_font_size(1:nrow(final), 1:ncol(final), 10)
 ```
 
 `r to_html(ht)`
