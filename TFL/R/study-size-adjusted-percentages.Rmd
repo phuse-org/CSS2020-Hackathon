@@ -11,6 +11,7 @@ source('podr_connections.R')
 library(tidyverse)
 library(Tplyr)
 library(knitr)
+library(huxtable)
 ```
 
 ## Study-size Adjusted Percentages
@@ -177,7 +178,7 @@ adjusted_pcts <- counts_and_weight %>%
   # Group by treatment group and adverse event and sum 
   # now we're aggregating the incidence of the AEs together within a treatment group
   group_by(TRTA, AEDECOD) %>% 
-  summarize(adj_pct_n = sum(weighted_pct_by_study)) %>% 
+  summarize(adj_pct_n = sum(weighted_pct_by_study), .groups='drop') %>% 
   # Lastly, let's do a little string formatting to make it pretty
   mutate(adj_pct = format(round(adj_pct_n * 100, digits=1), digits=1, width=4, nsmall=1)) %>% 
   select(TRTA, AEDECOD, adj_pct)
@@ -253,14 +254,18 @@ final <- adae_table_built %>%
 And finally - let's do some styling using the library Huxtable
 
 ```{r styling}
-ht <- huxtable::as_hux(final, add_colnames=FALSE) %>%
-  huxtable::set_bold(1:2, 1:ncol(final), TRUE) %>% # bold the first row
-  huxtable::set_align(1:2, 1:ncol(final), 'center') %>% # Center align the first row 
-  huxtable::set_align(3:nrow(final), 3:ncol(final), 'center') %>% # Center align the results
-  huxtable::set_valign(1:2, 1:ncol(final), 'bottom') %>% # Bottom align the first row
-  huxtable::set_bottom_border(2, 1:ncol(final), 1) %>% # Put a border under the first row
-  huxtable::set_width(1) %>% # Set the table width
-  huxtable::set_col_width(c(.3, rep(.7/6, 6))) # Set the column widths
+ht <- as_hux(final, add_colnames=FALSE) %>%
+  set_bold(1:2, 1:ncol(final), TRUE) %>% # bold the first row
+  set_align(1:2, 1:ncol(final), 'center') %>% # Center align the first row 
+  set_align(3:nrow(final), 3:ncol(final), 'center') %>% # Center align the results
+  set_valign(1:2, 1:ncol(final), 'bottom') %>% # Bottom align the first row
+  set_bottom_border(2, 1:ncol(final), 1) %>% # Put a border under the first row
+  set_width(1.1) %>% # Set the table width
+  set_col_width(c(.3, rep(.7/6, 6))) %>%  # Set the column widths
+  merge_cells(1, 2:3) %>% # Merge placebo spanning header
+  merge_cells(1, 4:5) %>% # Merge low dose spanning header
+  merge_cells(1, 6:7) %>%  # Merge high dose spanning header
+  set_background_color(seq(3, nrow(final), 2), everywhere, "grey95")
 ht
 ```
 
