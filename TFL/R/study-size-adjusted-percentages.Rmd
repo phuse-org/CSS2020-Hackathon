@@ -1,0 +1,274 @@
+---
+title: "Study Size Adjusted Percentages"
+author: "Mike Stackhouse"
+date: "9/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source('podr_connections.R')
+library(tidyverse)
+library(Tplyr)
+library(knitr)
+library(huxtable)
+```
+
+## Study-size Adjusted Percentages
+
+Pooled studies present a challenge in presenting apporopriately represented proportions when looking at subject totals in tables like Adverse Events. This document will explore proper calculation of Study-size adjusted percentages, as recommended. For more information on this problem, review [this YouTube video](https://www.youtube.com/watch?v=GGU6-Pmhq-g).
+
+## Recommended weighting scheme
+
+The weighting scheme recommended by PHUSE takes the proportion of subjects in an individual pooled study, within a treatment group compared to the total number of subjected in the pooled studies within that treatment group overall. This weight is then applied when aggregating the incidence across studies to identify the total percentage. 
+
+## Mock some data
+
+We don't have a pooled study available currently, so let's mock some up by randomly sampling subjects from the CDISC pilot into different 'studies'.
+
+```{r get data}
+# Note that you will need your own PODR account for this to work for you
+connect_podr('phuse_p7r82p0vul')
+
+# Read ADSL and ADAE
+adae <- read_podr('adae', libname='cdisc_pilot_adam')
+adsl <- read_podr('adsl', libname='cdisc_pilot_adam')
+```
+With the data loaded, let's create some new ADSL datasets.
+
+```{r mock adsl}
+set.seed(1234)
+# Get the set of subjects
+all_subs <- adsl$USUBJID
+# Sample 20 for the first group
+study1_subs <- sample(all_subs, 35)
+# Remove those subjects from the pool of available subjects
+all_subs <- setdiff(all_subs, study1_subs)
+# Repeat for study 2
+study2_subs <- sample(all_subs, 45)
+# Remove from total set
+all_subs <- setdiff(all_subs, study2_subs)
+# Repeat for study 3
+study3_subs <- sample(all_subs, 60)
+
+# Filter each of the ADSLs down
+adsl1 <- adsl %>% 
+  filter(USUBJID %in% study1_subs) 
+
+adsl2 <- adsl %>% 
+  filter(USUBJID %in% study2_subs) %>% 
+  mutate(STUDYID = "CDISCPILOT02")
+
+adsl3 <- adsl %>% 
+  filter(USUBJID %in% study3_subs) %>% 
+  mutate(STUDYID = "CDISCPILOT03")
+
+# Combine data together
+adsl_pooled <- bind_rows(adsl1, adsl2, adsl3)
+
+rm(all_subs, study1_subs, study2_subs, study3_subs)
+
+```
+
+Great - we have 3 different ADSLs. Let's mock up the matching ADAE datasets
+
+```{r mock adae}
+# Merge to subset ADAE to just subjects in the associated ADSL dataset
+adae1 <- adsl1 %>% 
+  select(STUDYID, USUBJID) %>% 
+  inner_join(adae, by='USUBJID') %>% 
+  mutate(STUDYID = STUDYID.x) %>% 
+  select(-STUDYID.x, -STUDYID.y)
+
+adae2 <- adsl2 %>% 
+  select(STUDYID, USUBJID) %>% 
+  inner_join(adae, by='USUBJID') %>% 
+  mutate(STUDYID = STUDYID.x) %>% 
+  select(-STUDYID.x, -STUDYID.y)
+
+adae3 <- adsl3 %>% 
+  select(STUDYID, USUBJID) %>% 
+  inner_join(adae, by='USUBJID') %>% 
+  mutate(STUDYID = STUDYID.x) %>% 
+  select(-STUDYID.x, -STUDYID.y)
+
+# Combine data together
+adae_pooled <- bind_rows(adae1, adae2, adae3)
+
+rm(adsl1, adsl2, adsl3, adae1, adae2, adae3)
+
+```
+
+Awesome - now we have some pooled datasets to play with. Like CDISC data, subjects are marked in their respective studies within the STUDYID variable. 
+
+## Deriving Weights
+
+The next step is to derive weights. In order to derive weights, we need two pieces of information:
+- The total number of subjects in a treatment arm
+- The total number of subjects by study in a treatment arm - which we can reuse later as a denominator as well
+
+Simple enough - let's go.
+
+```{r study size weights}
+# Start with treatment arm overall
+total_arm <- adsl_pooled %>% 
+  group_by(TRT01P) %>% 
+  summarize(total_arm = n(), .groups='drop')
+
+# Now get per study per arm
+total_study_arm <- adsl_pooled %>% 
+  group_by(TRT01P, STUDYID) %>% 
+  summarize(total_study_arm = n(), .groups='drop')
+
+denoms <- full_join(total_study_arm, total_arm, by = "TRT01P") %>% 
+  mutate(weight = total_study_arm / total_arm) 
+
+rm(total_arm, total_study_arm)
+
+kable(head(denoms))
+```
+
+Wonderful - we have some really useful information now - we have the denominator to use when calculating the incidence per study, and then the weight to use when aggregating the study-size adjusted percentage. Now we can go ahead to the next step - counting! 
+
+## Counting Adverse Events
+
+Next we need to count our adverse events. This is the first step before we can additionally derive percentages. Based on the summaries we're deriving, we must do a few other things as well:
+
+- Group by STUDYID, which you typically wouldn't do
+- Group by Treatment Group
+
+For simplicity sake, we're just going to summarize preferred term.
+
+```{r count AEs}
+counts_by_study <- adae_pooled %>% 
+  group_by(STUDYID, TRTA, AEDECOD) %>% 
+  distinct(USUBJID) %>%
+  summarize(counts = n(), .groups='drop')
+
+kable(head(counts_by_study))
+```
+
+Great - Now let's incorporate the denominators and the weights that we derived earlier. This will set us up to perform the final calculation of study-size adjusted percentages.
+
+```{r get weights}
+counts_and_weight <- counts_by_study %>% 
+  # Note that we're joining variables with different names.
+  # Left joins in R allow you to specify different variable
+  # names that you want to join by doing left_var = right_var
+  left_join(denoms, by=c('STUDYID', 'TRTA' = 'TRT01P'))
+
+kable(head(counts_and_weight))
+```
+
+# Deriving Study-size adjusted percentage
+
+So let's think about what has to happen next. 
+
+- The percentage in each study, by treatment, by adverse event needs to be calculated
+- Those percentages should be adjusted by weight
+- The percentages for each adverse event by study by treatment should be aggregated.
+
+
+There are a few steps, but the overall process is not very complicated. Let's go through step by step.
+
+```{r adjusted percentage calculation}
+adjusted_pcts <- counts_and_weight %>% 
+  # Calculate percent incidence of AEs weighted by study and treatment group
+  mutate(weighted_pct_by_study = weight * (counts / total_study_arm)) %>% 
+  # Group by treatment group and adverse event and sum 
+  # now we're aggregating the incidence of the AEs together within a treatment group
+  group_by(TRTA, AEDECOD) %>% 
+  summarize(adj_pct_n = sum(weighted_pct_by_study), .groups='drop') %>% 
+  # Lastly, let's do a little string formatting to make it pretty
+  mutate(adj_pct = format(round(adj_pct_n * 100, digits=1), digits=1, width=4, nsmall=1)) %>% 
+  select(TRTA, AEDECOD, adj_pct)
+
+kable(head(adjusted_pcts))
+```
+
+Wonderful - we have one last step of pivoting these data for presentation in a final output, and filling in the empty values
+
+```{r final pivot}
+adjusted_pcts_t <- adjusted_pcts %>% 
+  pivot_wider(id_cols = AEDECOD, names_from=TRTA, values_from = adj_pct, names_prefix='adj_pct_') %>% 
+  mutate_at(2:4, replace_na, replace=' 0.0')
+
+kable(head(adjusted_pcts_t))
+```
+
+## Incorporating Into a Final Table
+
+Everything above calculates the study-size adjusted percentage - but we need the rest of the table too. Let's use [Tplyr](https://atorus-research.github.io/Tplyr/) to get the rest of the data we need. 
+
+```{r build table}
+# Create the Tplyr table and specify the treatment variable
+adae_table <- tplyr_table(adae_pooled, TRTA) %>% 
+  # Set the population dataset
+  set_pop_data(adsl_pooled) %>%
+  # Set the population treatment variable
+  set_pop_treat_var(TRT01P) %>% 
+  # Add a new layer to the table
+  add_layer(
+    # Create a count summary on AEDECOD
+    group_count(AEDECOD) %>% 
+      # Set counts distinct by USUBJID
+      set_distinct_by(USUBJID) %>% 
+      # Set the order method for the results 
+      # to by count
+      set_order_count_method('bycount') %>% 
+      # Use the distinct subject counts for the order
+      set_result_order_var(distinct_n) %>% 
+      # Pull the order from the Xanomeline High Dose variable
+      set_ordering_cols('Xanomeline High Dose')
+  ) 
+
+adae_table_built <- adae_table %>% 
+  # Crunch the numbers
+  build()
+
+kable(head(adae_table_built))
+```
+
+Great - now we have the table data we need. Let's get the adjusted percentages in and do some styling!
+
+```{r merge adjusted percent}
+final <- adae_table_built %>% 
+  # Join in the adjusted percentages
+  left_join(adjusted_pcts_t, by = c('row_label1' = 'AEDECOD')) %>% 
+  # Sort by descending incidence from the Xanomeline High Dose group, and then alphabetically be preferred term
+  arrange(desc(ord_layer_1), row_label1) %>% 
+  # Select off the variables in the order I want them
+  select(row_label1, var1_Placebo, adj_pct_Placebo, `var1_Xanomeline Low Dose`, `adj_pct_Xanomeline Low Dose`,
+         `var1_Xanomeline High Dose`, `adj_pct_Xanomeline High Dose`) %>% 
+  # Add a nested set of column headers using Tplyr::add_column_headers. Using the adae_table object from above,
+  # the overall N counts are auto replaced for the **Treatment Group** strings below
+  add_column_headers(
+    paste0('Preferred Term | Placebo (N=**Placebo**) {n(%) | Study Size-Adjusted %} | ' ,
+           'Xanomeline Low Dose (N=**Xanomeline Low Dose**) {n(%) | Study Size-Adjusted %} |',
+           'Xanomeline High Dose (N=**Xanomeline High Dose**) {n(%) | Study Size-Adjusted %}'),
+     header_n = header_n(adae_table)
+  )
+
+```
+
+And finally - let's do some styling using the library Huxtable
+
+```{r styling}
+ht <- as_hux(final, add_colnames=FALSE) %>%
+  set_bold(1:2, 1:ncol(final), TRUE) %>% # bold the first row
+  set_align(1:2, 1:ncol(final), 'center') %>% # Center align the first row 
+  set_align(3:nrow(final), 3:ncol(final), 'center') %>% # Center align the results
+  set_valign(1:2, 1:ncol(final), 'bottom') %>% # Bottom align the first row
+  set_bottom_border(2, 1:ncol(final), 1) %>% # Put a border under the first row
+  set_width(1.1) %>% # Set the table width
+  set_col_width(c(.3, rep(.7/6, 6))) %>%  # Set the column widths
+  merge_cells(1, 2:3) %>% # Merge placebo spanning header
+  merge_cells(1, 4:5) %>% # Merge low dose spanning header
+  merge_cells(1, 6:7) %>%  # Merge high dose spanning header
+  set_background_color(seq(3, nrow(final), 2), everywhere, "grey95")
+ht
+```
+
+```{r close_connection, include=FALSE}
+DBI::dbDisconnect(getOption('podr_connection'))
+```
