@@ -1,10 +1,26 @@
-
-
-
-
-cdisc_prep <- function(tab, standard = NULL, standard_path  = NULL,
-                       remove_nonstandard = TRUE,
-                       remove_blank_perm = TRUE) {
+#' Add CDISC metadata to a dataframe.
+#' 
+#' This function was created during the PHUSE 2020 CSS hackathon.
+#'
+#' @param tab A dataframe to be made CDISC complient
+#' @param standard A dataframe containing CDISC IG data. Either standard or
+#'   standard_path should be provided.
+#' @param standard_path A path to an excel file containing CDSIC IG data. Either
+#'   standard or standard_path should be provided.
+#'
+#' @return A dataframe that can be passed to `haven::write_xpt()` or
+#'   `SASxport::write.xport()` to output an SDTM/ADaM/SEND xpt file.
+#'
+#' @examples
+#' 
+#' # Using the Phuse 2020 Hackathon database:
+#' ae <- read_podr("ae", "janssen_synthetic")
+#' # ae <- read_podr("ae", "cdisc_pilot_sdtm")
+#' new <- cdisc_prep(ae, standard = ae_standard)
+#' 
+#' SASxport::write.xport(new, "~/ae.xpt")
+#' #or haven::write_xpt(new, "~/ae.xpt")
+cdisc_prep <- function(tab, standard = NULL, standard_path  = NULL) {
   
   # Read standard
   if(is.null(standard)) {
@@ -16,13 +32,13 @@ cdisc_prep <- function(tab, standard = NULL, standard_path  = NULL,
   tab[is.na(tab)] <- ""
   
   # Check/Remove nonstandard variables
-  tab <- check_cdisc_nonstandard(tab, standard, remove_nonstandard)
-  
-  # Check variables for missing values(just removes blank perms right now)
-  tab <- check_cdisc_core(tab, standard, remove_blank_perm)
-  
-  # Add labels and data types
-  tab <- add_cdisc_metadata(tab, standard)
+  tab <- check_cdisc_nonstandard(tab, standard, remove_nonstandard = TRUE) %>%
+    # Check variables for missing values(just removes blank perms right now)
+    check_cdisc_core(standard, remove_blank_perm = TRUE) %>%
+    # Add labels and data types
+    add_cdisc_metadata(standard) %>%
+    # Order the variables in the dataset
+    order_cdisc_dataset(standard)
   
   tab
 }
@@ -36,12 +52,12 @@ check_cdisc_nonstandard <- function(tab, standard, remove_nonstandard = FALSE) {
   if(!all(var_is_standard)) {
     if(remove_nonstandard) {
       warning(paste0("Nonstandard variables removed: ",
-                     paste0(names(tab)[var_is_standard], collapse = "", sep = " ")))
+                     paste0(names(tab)[!var_is_standard], collapse = "", sep = " ")))
       tab <- tab[var_is_standard]
       
     } else {
       warning(paste0("Nonstandard variables found: ",
-                     paste0(names(tab)[var_is_standard], collapse = "", sep = " ")))
+                     paste0(names(tab)[!var_is_standard], collapse = "", sep = " ")))
     }
   }
   
@@ -100,4 +116,15 @@ is_blank_perm <- function(name, table, standard) {
   is_blank <- all(is.na(table[, name])) | all(table[, name] == "")
   
   core_i == "Perm" && is_blank
+}
+
+order_cdisc_dataset <- function(tab, standard) {
+  #TODO: Pull this out
+  ord_ <- map_dbl(names(tab), function(x) {
+    standard %>%
+      filter(`Variable Name` == x) %>%
+      select(`Seq. For Order`) %>%
+      extract2(1)})
+  
+  tab[sort.int(ord_, index.return = TRUE)$ix]
 }
