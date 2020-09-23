@@ -1,5 +1,5 @@
 ---
-title: "Study Size Adjusted Percentages"
+title: "Study-size Adjusted Percentages"
 author: "Mike Stackhouse"
 date: "9/22/2020"
 output: html_document
@@ -13,8 +13,6 @@ library(Tplyr)
 library(knitr)
 library(huxtable)
 ```
-
-## Study-size Adjusted Percentages
 
 Pooled studies present a challenge in presenting apporopriately represented proportions when looking at subject totals in tables like Adverse Events. This document will explore proper calculation of Study-size adjusted percentages, as recommended. For more information on this problem, review [this YouTube video](https://www.youtube.com/watch?v=GGU6-Pmhq-g).
 
