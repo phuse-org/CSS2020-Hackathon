@@ -132,9 +132,22 @@ ds3_ <- ds %>%
   filter(DSDECOD=='RANDOMIZED') %>%
   select(USUBJID, DSSTDTC)
 arfstdt_ <- full_join(ex1_, ds3_, by='USUBJID') %>%
-  mutate(ARFSTDT=ifelse(!is.na(EXSTDTC) & length(EXSTDTC<=10), as.Date(EXSTDTC, tryFormats = c("%Y-%m-%d")), as.Date(DSSTDTC, tryFormats = c("%Y-%m-%d"))))
+  mutate(ARFSTDT=ifelse(!is.na(EXSTDTC) & length(EXSTDTC<=10), substr(EXSTDTC,1,10), DSSTDTC),
+         ARFSTDTM=substr(EXSTDTC,12,16)) %>%
+  select(USUBJID, ARFSTDT, ARFSTDTM)
+adsl <- adsl %>%
+  left_join(., arfstdt_, by='USUBJID')
 
 #ARFENDT
+ex2_ <- ex %>%
+  group_by(USUBJID) %>%
+  filter(length(EXSTDTC)>=10, EXSEQ==max(EXSEQ)) %>%
+  select(USUBJID, EXSTDTC)
+arfendt_ <- full_join(ex2_, ds3_, by='USUBJID') %>%
+  mutate(ARFENDT=ifelse(!is.na(EXSTDTC) & length(EXSTDTC<=10), substr(EXSTDTC,1,10), DSSTDTC)) %>%
+  select(USUBJID, ARFENDT)
+adsl <- adsl %>%
+  left_join(., arfendt_, by='USUBJID')
 
 #TRTSDT
 
