@@ -1,5 +1,5 @@
 ---
-title: "Study Size Adjusted Percentages"
+title: "Study-size Adjusted Percentages"
 author: "Mike Stackhouse"
 date: "9/22/2020"
 output: html_document
@@ -13,8 +13,6 @@ library(Tplyr)
 library(knitr)
 library(huxtable)
 ```
-
-## Study-size Adjusted Percentages
 
 Pooled studies present a challenge in presenting apporopriately represented proportions when looking at subject totals in tables like Adverse Events. This document will explore proper calculation of Study-size adjusted percentages, as recommended. For more information on this problem, review [this YouTube video](https://www.youtube.com/watch?v=GGU6-Pmhq-g).
 
@@ -41,15 +39,15 @@ set.seed(1234)
 # Get the set of subjects
 all_subs <- adsl$USUBJID
 # Sample 20 for the first group
-study1_subs <- sample(all_subs, 35)
+study1_subs <- sample(all_subs, 20)
 # Remove those subjects from the pool of available subjects
 all_subs <- setdiff(all_subs, study1_subs)
 # Repeat for study 2
-study2_subs <- sample(all_subs, 45)
+study2_subs <- sample(all_subs, 30)
 # Remove from total set
 all_subs <- setdiff(all_subs, study2_subs)
 # Repeat for study 3
-study3_subs <- sample(all_subs, 60)
+study3_subs <- sample(all_subs, 150)
 
 # Filter each of the ADSLs down
 adsl1 <- adsl %>% 
@@ -66,6 +64,7 @@ adsl3 <- adsl %>%
 # Combine data together
 adsl_pooled <- bind_rows(adsl1, adsl2, adsl3)
 
+# Do some clean up
 rm(all_subs, study1_subs, study2_subs, study3_subs)
 
 ```
@@ -95,6 +94,7 @@ adae3 <- adsl3 %>%
 # Combine data together
 adae_pooled <- bind_rows(adae1, adae2, adae3)
 
+# Clean up
 rm(adsl1, adsl2, adsl3, adae1, adae2, adae3)
 
 ```
@@ -104,26 +104,42 @@ Awesome - now we have some pooled datasets to play with. Like CDISC data, subjec
 ## Deriving Weights
 
 The next step is to derive weights. In order to derive weights, we need two pieces of information:
-- The total number of subjects in a treatment arm
-- The total number of subjects by study in a treatment arm - which we can reuse later as a denominator as well
+
+- The total number of subjects in each study
+- The total number of subjects overall
+
+This differs from the crude study-size adjustment approach, which would weight by treatment arm.
 
 Simple enough - let's go.
 
 ```{r study size weights}
-# Start with treatment arm overall
-total_arm <- adsl_pooled %>% 
-  group_by(TRT01P) %>% 
-  summarize(total_arm = n(), .groups='drop')
+# Start with overall count
+total_subs <- adsl_pooled %>%
+  summarize(total_subs = n(), .groups='drop') %>% 
+  # Magrittr is more than a pipe (%>%)! Look at the help
+  # documentation for magrittr::extract. There are a number of nifty
+  # tools for working in a tidy context
+  extract2('total_subs')
 
-# Now get per study per arm
+# Now per study
+total_study_subs <- adsl_pooled %>% 
+  group_by(STUDYID) %>% 
+  summarize(total_study_subs = n(), .groups='drop') %>% 
+  # Instead of merging, since I have the distinct count 
+  # above I can just assign it here
+  mutate(total_subs = total_subs)
+
+# Subjects in an ARM
 total_study_arm <- adsl_pooled %>% 
-  group_by(TRT01P, STUDYID) %>% 
-  summarize(total_study_arm = n(), .groups='drop')
+  group_by(STUDYID, TRT01P) %>% 
+  summarize(total_study_arm = n(), .groups='drop') 
 
-denoms <- full_join(total_study_arm, total_arm, by = "TRT01P") %>% 
-  mutate(weight = total_study_arm / total_arm) 
+# Get denom dataset assembled
+denoms <- total_study_subs %>% 
+  full_join(total_study_arm, by='STUDYID') %>% 
+  mutate(weight = total_study_subs / total_subs)
 
-rm(total_arm, total_study_arm)
+rm(total_subs, total_study_subs)
 
 kable(head(denoms))
 ```
@@ -136,6 +152,7 @@ Next we need to count our adverse events. This is the first step before we can a
 
 - Group by STUDYID, which you typically wouldn't do
 - Group by Treatment Group
+- Calculate _distinct_ counts by USUBJID - to get the study-size adjusted percentage we need to know the proportion of subjects who experienced an AE, not the number of AEs experienced. 
 
 For simplicity sake, we're just going to summarize preferred term.
 
@@ -152,9 +169,11 @@ Great - Now let's incorporate the denominators and the weights that we derived e
 
 ```{r get weights}
 counts_and_weight <- counts_by_study %>% 
-  # Note that we're joining variables with different names.
-  # Left joins in R allow you to specify different variable
-  # names that you want to join by doing left_var = right_var
+  # Using dplyr joins, you don't have to have matching variable names!
+  # Instead, you can actually specify the by variables using a named character
+  # vector (i.e. using c()). Below you can see that counts_by_study has the 
+  # variable TRTA and denoms has TRTP - I instruct dplyr to merge on these
+  # two variables using 'left_variable' = 'right_variable'
   left_join(denoms, by=c('STUDYID', 'TRTA' = 'TRT01P'))
 
 kable(head(counts_and_weight))
@@ -165,9 +184,8 @@ kable(head(counts_and_weight))
 So let's think about what has to happen next. 
 
 - The percentage in each study, by treatment, by adverse event needs to be calculated
-- Those percentages should be adjusted by weight
+- Those percentages should be adjusted by the weights we calculated earlier 
 - The percentages for each adverse event by study by treatment should be aggregated.
-
 
 There are a few steps, but the overall process is not very complicated. Let's go through step by step.
 
@@ -181,16 +199,25 @@ adjusted_pcts <- counts_and_weight %>%
   summarize(adj_pct_n = sum(weighted_pct_by_study), .groups='drop') %>% 
   # Lastly, let's do a little string formatting to make it pretty
   mutate(adj_pct = format(round(adj_pct_n * 100, digits=1), digits=1, width=4, nsmall=1)) %>% 
+  # And grab just the variables we want.
   select(TRTA, AEDECOD, adj_pct)
 
 kable(head(adjusted_pcts))
 ```
 
-Wonderful - we have one last step of pivoting these data for presentation in a final output, and filling in the empty values
+Wonderful - we have one last step of pivoting these data for presentation in a final output, and filling in the empty values.
 
 ```{r final pivot}
 adjusted_pcts_t <- adjusted_pcts %>% 
+  # Pivot wider goes from long to wide - so here I'm keeping AEDECOD as is, making
+  # my variable names from TRTA, pulling values from adj_pct - so the TRTA values
+  # become columns and the associated data from adj_pct fills those columns. 
+  # And finally to make my column names useful I add a prefix of adj_pct_. 
   pivot_wider(id_cols = AEDECOD, names_from=TRTA, values_from = adj_pct, names_prefix='adj_pct_') %>% 
+  # dplyr has a number of useful mutate variations that have different applications.
+  # Instead of applying the same function to all 3 of the columns created in the block above,
+  # here I'm saying for columns 2 through 4, use replace_na and the `replace` argument should 
+  # be set to ' 0.0'. View the help page for dplyr::mutate_at for more examples.
   mutate_at(2:4, replace_na, replace=' 0.0')
 
 kable(head(adjusted_pcts_t))
@@ -235,13 +262,16 @@ Great - now we have the table data we need. Let's get the adjusted percentages i
 final <- adae_table_built %>% 
   # Join in the adjusted percentages
   left_join(adjusted_pcts_t, by = c('row_label1' = 'AEDECOD')) %>% 
-  # Sort by descending incidence from the Xanomeline High Dose group, and then alphabetically be preferred term
+  # Sort by descending incidence from the Xanomeline High Dose group, and 
+  # then alphabetically be preferred term
   arrange(desc(ord_layer_1), row_label1) %>% 
   # Select off the variables in the order I want them
-  select(row_label1, var1_Placebo, adj_pct_Placebo, `var1_Xanomeline Low Dose`, `adj_pct_Xanomeline Low Dose`,
-         `var1_Xanomeline High Dose`, `adj_pct_Xanomeline High Dose`) %>% 
-  # Add a nested set of column headers using Tplyr::add_column_headers. Using the adae_table object from above,
-  # the overall N counts are auto replaced for the **Treatment Group** strings below
+  select(row_label1, var1_Placebo, adj_pct_Placebo, `var1_Xanomeline Low Dose`, 
+         `adj_pct_Xanomeline Low Dose`, `var1_Xanomeline High Dose`, 
+         `adj_pct_Xanomeline High Dose`) %>% 
+  # Add a nested set of column headers using Tplyr::add_column_headers. Using 
+  # the adae_table object from above, the overall N counts are auto replaced 
+  # for the **Treatment Group** strings below
   add_column_headers(
     paste0('Preferred Term | Placebo (N=**Placebo**) {n(%) | Study Size-Adjusted %} | ' ,
            'Xanomeline Low Dose (N=**Xanomeline Low Dose**) {n(%) | Study Size-Adjusted %} |',
@@ -257,7 +287,7 @@ And finally - let's do some styling using the library Huxtable
 ht <- as_hux(final, add_colnames=FALSE) %>%
   set_bold(1:2, 1:ncol(final), TRUE) %>% # bold the first row
   set_align(1:2, 1:ncol(final), 'center') %>% # Center align the first row 
-  set_align(3:nrow(final), 3:ncol(final), 'center') %>% # Center align the results
+  set_align(3:nrow(final), 2:ncol(final), 'center') %>% # Center align the results
   set_valign(1:2, 1:ncol(final), 'bottom') %>% # Bottom align the first row
   set_bottom_border(2, 1:ncol(final), 1) %>% # Put a border under the first row
   set_width(1.1) %>% # Set the table width
