@@ -1,0 +1,29 @@
+TRT01P:
+    source: DM.ARM
+TRT01PN:
+    dependencies:
+     - TRT01P
+    logic: 
+TRT01A:
+    source: DM.ACTARM
+TRT01AN:
+    dependencies:
+     - TRT01A
+RANDFL:
+    dependencies:
+    - DS.USUBJID
+    - DS.DSDECOD
+    logic: |
+        "Y" if [ ( DS["USUBJID"] == ADSL["USUBJID"] ) & ( DS["DSDECOD"] == "RANDOMIZED" ) ] else "N"
+ITTFL:
+    dependencies: 
+     - ARFSTDT
+    logic: |
+        "Y" if [ ( VS["USUBJID"] == ADSL["USUBJID"] ) & ( VS["VSDT"] <= ADSL["ARFSTDT"] ) ] else "N"
+ARFSTDT:
+    logic:
+     - notnull
+     - | 
+         [ ( EX["USUBJID"] == ADSL["USUBJID"] ) & ( VS["VSDT"] <= ADSL["ARFSTDT"] ) ]
+     - | 
+         [ ( EX["USUBJID"] == ADSL["USUBJID"] ) & ( DS["DSDECOD"] == "RANDOMIZED" ) ]
