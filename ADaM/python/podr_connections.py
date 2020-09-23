@@ -6,6 +6,9 @@ import psycopg2
 import psycopg2.extras
 from getpass import getpass
 import pandas
+import os
+import re
+
 
 class podr_connection:
     '''
@@ -14,7 +17,7 @@ class podr_connection:
     data being used within the hackathon.
     '''
     
-    def __init__(self, username):
+    def __init__(self, username, password=None):
         '''
         This creates the PODR connection object, which can then be used as a reader. Through initializing
         the object, the connection into PODR is made. You will be prompted by Python to specify your
@@ -27,8 +30,10 @@ class podr_connection:
         # Parameter checks
         assert isinstance(username, str), "Username must be a string"
         
+        _password = password if password else getpass('PODR Password: ')
+        
         # Create the connection string
-        con_string = f"dbname='nihpo' user='{username}' password='{getpass('PODR Password: ')}' host='podr.phuse.global' port='5432'" 
+        con_string = f"dbname='nihpo' user='{username}' password='{_password}' host='podr.phuse.global' port='5432'" 
         
         # Make the PostrgreSQL connection to PODR
         try:
@@ -80,11 +85,27 @@ class podr_connection:
         # Convert any date column that would have read as numbers
         for var in filter(lambda x: x[-2:] == "DT", df.columns):
             df[var] = df[var].apply(self.convert_sas_date)
+
+        # Convert any date column to a date
+        for var in filter(lambda x: x[-3:] == "DTC", df.columns):
+            df[var] = df[var].apply(self.convert_date)
             
         return df
     
     def convert_sas_date(self, x):
         return pandas.to_timedelta(x, unit='D') + pandas.Timestamp('1960-1-1')
+    
+    def convert_date(self, x):
+        """
+        There are much more elegant ways to do this.....
+        """
+        if re.match("(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})", str(x)):
+            format = "%Y-%m-%dT%H:%M"
+        elif re.match("(\d{4})-(\d{2})-(\d{2})", str(x)):
+            format = "%Y-%m-%d"
+        else:
+            format = "%Y-%m-%dT%H:%M:%S"
+        return pandas.to_datetime(x, format=format)
     
     def __delete__(self):
         self.con.close()
