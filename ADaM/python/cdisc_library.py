@@ -137,6 +137,11 @@ class CDISCConnector:
         return response.json()
     
     def get_terminology_by_name(self, name, parent):
+        """
+        Given the username for the Codelist find the 
+        """
+        pass
+    
         
     def terminology_set(self, name, parent="sdtm"):
         """
