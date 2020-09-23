@@ -19,7 +19,7 @@
 #' new <- cdisc_prep(ae, standard = ae_standard)
 #' 
 #' SASxport::write.xport(new, "~/ae.xpt")
-#' #or haven::write_xpt(new, "~/ae.xpt")
+#' #or haven::write_xpt(new, "~/ae.xpt", version = 5)
 cdisc_prep <- function(tab, standard = NULL, standard_path  = NULL) {
   
   # Read standard
@@ -87,10 +87,9 @@ add_cdisc_metadata <- function(tab, standard) {
   tab
 }
 
-
 check_cdisc_core <- function(tab, standard, remove_blank_perm = FALSE) {
   
-  # Vector created. TRUE if varaible is blank and perm core
+  # Vector created. TRUE if variable is blank and perm core
   blank_perm_vars <- map_lgl(names(tab), is_blank_perm, tab, standard)
   
   # Remove or warn for variables.
@@ -120,11 +119,13 @@ is_blank_perm <- function(name, table, standard) {
 
 order_cdisc_dataset <- function(tab, standard) {
   #TODO: Pull this out
+  # Returns the order of the columns
   ord_ <- map_dbl(names(tab), function(x) {
     standard %>%
       filter(`Variable Name` == x) %>%
       select(`Seq. For Order`) %>%
       extract2(1)})
   
+  #Resorts the columns
   tab[sort.int(ord_, index.return = TRUE)$ix]
 }
