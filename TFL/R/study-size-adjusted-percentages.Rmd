@@ -106,6 +106,7 @@ Awesome - now we have some pooled datasets to play with. Like CDISC data, subjec
 ## Deriving Weights
 
 The next step is to derive weights. In order to derive weights, we need two pieces of information:
+
 - The total number of subjects in each study
 - The total number of subjects overall
 
