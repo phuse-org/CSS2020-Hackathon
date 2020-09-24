@@ -1,0 +1,6 @@
+python-dotenv
+requests
+rdflib
+xlrd
+pyyaml
+
